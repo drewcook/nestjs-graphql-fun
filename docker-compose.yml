@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  dev-db:
+    image: postgres:13
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=12345
+      - POSTGRES_DB=dev
+    networks:
+      - dev
+  test-db:
+    image: postgres:13
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=12345
+      - POSTGRES_DB=test
+    networks:
+      - test
+networks:
+  dev:
+  test:
+
